@@ -1,0 +1,104 @@
+Link: https://www.youtube.com/watch?v=PFIzbQ5Bh0c&t=880s
+
+crear proyecto 
+npx create-next-app primer_proyecto_next
+
+next.config.js: es por si queremos una caracteristica extra o queremos que nos interprete de una manera el codigo
+
+corremos npm run dev 
+
+package.json
+        NEXT.JS                                                         Equivalente en React JS
+"dev": "next dev",       lanzar un servidor de desarrollo                     npm start  
+"build": "next build",   Comvertir nuestro proyecto a produccion              npm run build
+"start": "next start",   Ejecutarlo en produccion
+"lint": "next lint"      Leer la escritura de nuestro codigo
+
+react basico es lo que seria
+"react": "18.2.0",
+"react-dom": "18.2.0",
+
+
+vamos a http://localhost:3000/
+
+si entramos a http://localhost:3000/about --> 404 es asi porque react es una biblioteca
+
+si queremos crear nuevos modulos usamos React Routes https://reactrouter.com/en/main/components/routes alternativa routes location
+
+NOTA: NEXT YA TIENE SU ENRUTADOR INSTALADO 
+
+== al hacer el build de nuestra app 
+
+corremos npm run build 
+error: Los componentes se le llaman con la primera letra en Mayuscula "About"
+
+code splitting:consiste en separar el código en varios paquetes o componentes que pueden cargarse bajo demanda o en paralelo 
+"Dividir el codigo de produccion en multiples change o partes que son cargadas dinamicamente, a medica que la pagina necesita una determina parte lo carga."
+
+Para hacer esto en react nosotros podriamos utilizar modulos por elemplo "React Loadable" https://github.com/jamiebuilds/react-loadable y esto nos permite tener code splitting en react 
+de una forma sencilla pero todo esto en NextJS YA LO TENEMOS POR DEFECTO. 
+
+APIS 
+vamos a: 
+http://localhost:3000/api/hello
+
+creamos una api
+export default function asyn(req, res) {
+    return res.status(200).json({user: [{'name': 'Esneider Buelvas'}]});
+}
+
+http://localhost:3000/api/users/all
+
+en Next podemos optimizar el seo con: import Head from "next/head";
+<Head>
+   <title>ABOUT</title>
+   <meta name="descripcion" content="Mu firt app with Next.Js"></meta>
+</Head>
+
+MANIPULACION DE IMAGENES: about.js
+
+<img src="/bg.jpg"/>
+
+Next.js cuando refrescar sin borrar cache guarda los archivos que son pedidos muchas veces.
+
+== Midiendo velocidad de descarga  de la IMG == 
+Peso normal de la imagen 30.6 kB
+para mejorar esto importamos una libreria
+
+import Image from 'next/image';
+creamos una Etiqueta
+<Image src="/bg.jpg" alt='' width="2000" height="200" layout="responsive"/>
+Peso renderizado 10.9 kB
+y si renderizamos de nuevo y queda en cache 230 B
+Nota: la etiqueta es requerida en width y el height y con el responsive se adacta a los tipos de pantalla.
+
+
+Next tiene sus multiples formas de poder renderizar
+Lo que permite next que no tiene react es que permite procesar codigo en el backend
+.si yo quiero procesar una parte antes de llegar a la pagina en el backend(lo que esta en el about dentro del return en html) 
+yo puedo crear una funcion llamada:
+
+
+export async function getServerSideProps(context){
+    let response = await fetch('https://jsonplaceholder.typicode.com/posts',{method: 'GET'});  // LINKhttps://jsonplaceholder.typicode.com/
+    let result = await response.json();
+    console.log(result);
+    return {
+        props: {
+            result
+        }
+    }
+}
+
+vemos que en el network de la consola de chrome no muestra la peticion ni la respuesta sino por la terminal de VS Code
+esto quiere decir que esta siendo procesado por NODE.JS 
+
+para verlo en el componente se lo pasamos a la funcion function  About({result})
+
+con este metodo se procesa en el backend con getServerSideProps(context)
+y con esta getStaticProps(context) va hacer que el return va a convertirlo en un html 
+vamos hacer el build:npm run build 
+si vamos a la carpeta .next/server/pages/about.html encontraremos la pagina compilada para cargar mas rapido
+vamos a produccion con el comando 
+
+instalamos "VERCEL" con  npm i -g vercel
