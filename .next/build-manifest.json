@@ -1,0 +1,56 @@
+{
+  "polyfillFiles": [
+    "static/chunks/polyfills-78c92fac7aa8fdd8.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [
+    "static/hgoCcXeS6RI4xknjDxcNX/_buildManifest.js",
+    "static/hgoCcXeS6RI4xknjDxcNX/_ssgManifest.js"
+  ],
+  "rootMainFiles": [
+    "static/chunks/webpack-674235683d0a26d7.js",
+    "static/chunks/fd9d1056-a99b58d3cc150217.js",
+    "static/chunks/596-c294a7d39d9fe754.js",
+    "static/chunks/main-app-479451659192eb5e.js"
+  ],
+  "pages": {
+    "/_app": [
+      "static/chunks/webpack-674235683d0a26d7.js",
+      "static/chunks/framework-82ceb3ddb73c0589.js",
+      "static/chunks/main-6faadd80e6ce24f9.js",
+      "static/chunks/pages/_app-52924524f99094ab.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack-674235683d0a26d7.js",
+      "static/chunks/framework-82ceb3ddb73c0589.js",
+      "static/chunks/main-6faadd80e6ce24f9.js",
+      "static/chunks/pages/_error-c92d5c4bb2b49926.js"
+    ],
+    "/about": [
+      "static/chunks/webpack-674235683d0a26d7.js",
+      "static/chunks/framework-82ceb3ddb73c0589.js",
+      "static/chunks/main-6faadd80e6ce24f9.js",
+      "static/chunks/pages/about-35154eddfcab2f2e.js"
+    ],
+    "/first-post": [
+      "static/chunks/webpack-674235683d0a26d7.js",
+      "static/chunks/framework-82ceb3ddb73c0589.js",
+      "static/chunks/main-6faadd80e6ce24f9.js",
+      "static/chunks/pages/first-post-7d8d053631ce10ff.js"
+    ],
+    "/products/computadoras": [
+      "static/chunks/webpack-674235683d0a26d7.js",
+      "static/chunks/framework-82ceb3ddb73c0589.js",
+      "static/chunks/main-6faadd80e6ce24f9.js",
+      "static/chunks/pages/products/computadoras-f4ba8d707ae2e410.js"
+    ],
+    "/products/electrodomesticos": [
+      "static/chunks/webpack-674235683d0a26d7.js",
+      "static/chunks/framework-82ceb3ddb73c0589.js",
+      "static/chunks/main-6faadd80e6ce24f9.js",
+      "static/chunks/pages/products/electrodomesticos-8001f61a518a8c87.js"
+    ]
+  },
+  "ampFirstPages": []
+}
